@@ -1,0 +1,13 @@
+.container {
+  padding: 15px 30px 100px 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.filter {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+}

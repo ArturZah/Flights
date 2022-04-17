@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span class="header-text">Flights</span>
+  <div>
+    <button mat-button [routerLink]="['/active-flights']">
+      Active flights
+    </button>
+    <button mat-button [routerLink]="['/airplains-list']">
+      Airplains list
+    </button>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<mat-toolbar color="primary" class="footer">
+  <div></div>
+  <span class="footer-text">Flights 2022</span>
+  <button mat-icon-button aria-label="share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>

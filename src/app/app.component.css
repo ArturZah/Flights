@@ -1,0 +1,15 @@
+.header-text {
+  margin-right: 30px;
+  cursor: default;
+}
+
+.footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+}
+
+.footer-text {
+  font-size: 14px;
+}

@@ -1,0 +1,90 @@
+<h2 class="section-header">{{ flightsObjectArr.length }} machines in air</h2>
+<div class="info-container">
+  <app-map class="map" [flightsData]="flightsObjectArr"></app-map>
+  <div class="table-filter">
+    <div class="filter">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. ium"
+          #input
+        />
+      </mat-form-field>
+    </div>
+    <div class="tabel-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>No.</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.index }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hex">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>HEX</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.hex }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="aircraft_icao">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Aircraft ICAO
+          </th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.aircraft_icao ? element.aircraft_icao : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="airline_iata">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline IATA</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.airline_iata ? element.airline_iata : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="airline_icao">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline ICAO</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.airline_icao ? element.airline_icao : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="reg_number">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Reg. numberO</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.reg_number ? element.reg_number : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="flag">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Flag</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.flag ? element.flag : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="manufacturer">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Manufacturer</th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.manufacturer ? element.manufacturer : "-" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="is_in_pl_borders">
+          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Is in PL borders
+          </th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.is_in_pl_borders ? "YES" : "NO" }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

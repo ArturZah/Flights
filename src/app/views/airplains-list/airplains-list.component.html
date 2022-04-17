@@ -1,0 +1,64 @@
+<div class="container">
+  <mat-form-field appearance="outline" class="filter">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. ium"
+      #input
+    />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>No.</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.index }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hex">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>HEX</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.hex }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="icao">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Aircraft ICAO</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.icao ? element.icao : "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="iata">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Aircraft IATA</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.iata ? element.iata : "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="airline_icao">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline ICAO</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.airline_icao ? element.airline_icao : "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="airline_iata">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline Iata</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.airline_iata ? element.airline_iata : "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="manufacturer">
+      <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Manufacturer</th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ element.manufacturer ? element.manufacturer : "-" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
