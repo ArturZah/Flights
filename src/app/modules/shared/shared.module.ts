@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkerService } from '../../services/marker.service';
@@ -16,6 +17,7 @@ const modules = [
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
+  MatSortModule,
   BrowserModule,
   CommonModule,
   HttpClientModule,
