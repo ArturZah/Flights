@@ -42,7 +42,8 @@ export class MapComponent implements AfterViewInit {
         data.lat,
         data.lng,
         data.hex,
-        data.index
+        data.index,
+        data?.flag
       );
     });
   }

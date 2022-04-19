@@ -59,7 +59,7 @@ export class ActiveFlightsComponent implements OnInit {
         const polLng = flightLng >= this.minLng && flightLng <= this.maxLng;
         const manufacturer = airplainsData.find((data: AirplaneData) => {
           return data.hex === flightData.hex;
-        }).manufacturer;
+        })?.manufacturer;
         const unixTime: number = flightData.updated * 1000;
         const lastpositionUpdate = this.datePipe.transform(
           // @ts-ignore

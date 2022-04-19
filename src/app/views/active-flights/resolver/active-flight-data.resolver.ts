@@ -16,13 +16,14 @@ export class ActiveFlightDataResolver implements Resolve<Object> {
     });
 
     //  TODO ODKOMENTOWAĆ JEŻELI CHCEMY UŻYĆ PRAWDZIWEGO API
-    // return this.httpCLient.get(
-    //   'https://airlabs.co/api/v9/flights?api_key=68b48137-df0e-4491-a170-7ecbc184aa57&hex=' +
-    //     hexParam
-    // );
+    return this.httpCLient.get(
+      'https://airlabs.co/api/v9/flights?api_key=68b48137-df0e-4491-a170-7ecbc184aa57&hex=' +
+        hexParam
+    );
 
-    return of({
-      response: flightsObjectArrMock,
-    });
+    // TODO ODKOMENTOWAĆ JEŻELI CHEMY UŻYĆ MOCK DATA
+    // return of({
+    //   response: flightsObjectArrMock,
+    // });
   }
 }
