@@ -15,6 +15,16 @@
   padding: 15px 0;
 }
 
+.container-text {
+  color: #fff;
+  margin: 5px 0;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .section-header {
   padding: 15px 0 0 0;
   color: #fff;
@@ -56,4 +66,11 @@
 td.u-pr-1,
 th.u-pr-1 {
   padding-right: 10px;
+}
+
+@media only screen and (max-width: 1501px) {
+  .info-container {
+    width: calc(100% - 60px);
+    padding: 0 30px;
+  }
 }

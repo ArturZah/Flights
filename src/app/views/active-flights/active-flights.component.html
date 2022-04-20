@@ -1,5 +1,15 @@
 <div class="info-container">
-  <h2 class="section-header">{{ flightsObjectArr.length }} machines in air</h2>
+  <h2 class="section-header">
+    {{ flightsObjectArr.length }}
+    {{ flightsObjectArr.length > 1 ? "machines" : "machine" }} in the air
+  </h2>
+  <p class="container-text">
+    Map shows an actual position of active flights from
+    <span class="link" [routerLink]="['/airplains-list']">airplains list</span>
+  </p>
+  <p class="container-text">
+    Data in table can be filtered by value and sorted in collums
+  </p>
   <app-map class="map" [flightsData]="flightsObjectArr"></app-map>
   <div class="table-filter">
     <div class="filter">
@@ -14,23 +24,33 @@
       </mat-form-field>
     </div>
     <div class="tabel-container">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+      <table
+        matSort
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8 table"
+        #activeFlightsTbSort="matSort"
+      >
         <ng-container matColumnDef="position">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>No.</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            No.
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.index }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="hex">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>HEX</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            HEX
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.hex }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="aircraft_icao">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
             Aircraft ICAO
           </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
@@ -39,42 +59,52 @@
         </ng-container>
 
         <ng-container matColumnDef="airline_iata">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline IATA</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Airline IATA
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.airline_iata ? element.airline_iata : "-" }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="airline_icao">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Airline ICAO</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Airline ICAO
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.airline_icao ? element.airline_icao : "-" }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="reg_number">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Reg. numberO</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Reg. numberO
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.reg_number ? element.reg_number : "-" }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="flag">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Flag</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Flag
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.flag ? element.flag : "-" }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="manufacturer">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>Manufacturer</th>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Manufacturer
+          </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.manufacturer ? element.manufacturer : "-" }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="is_in_pl_borders">
-          <th mat-header-cell class="u-pr-1" *matHeaderCellDef>
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
             Is in PL borders
           </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">

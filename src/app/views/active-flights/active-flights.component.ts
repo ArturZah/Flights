@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { airplainsData } from '../../data/flights-hex-list-data';
 import { AirplaneData } from '../../models/airplane.interface';
@@ -9,13 +9,15 @@ import {
 } from '../../models/flight.interfaces';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-active-flights',
   templateUrl: './active-flights.component.html',
   styleUrls: ['./active-flights.component.css'],
 })
-export class ActiveFlightsComponent implements OnInit {
+export class ActiveFlightsComponent implements OnInit, AfterViewInit {
+  @ViewChild('activeFlightsTbSort') activeFlightsTbSort = new MatSort();
   public flightData: FlightDto;
   public dataSource: any;
   public datePipe = new DatePipe('en-US');
@@ -40,9 +42,12 @@ export class ActiveFlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.flightData = this.activatedRoute.snapshot.data.activeFlightData;
-    // this.flightsObjectArr = flightsObjectArrMock;
     this.createFlightsObject();
     this.dataSource = new MatTableDataSource(this.flightsObjectArr);
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.activeFlightsTbSort;
   }
 
   public showMap(lat: string, lng: string): void {}
