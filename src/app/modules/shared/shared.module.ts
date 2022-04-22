@@ -10,6 +10,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkerService } from '../../services/marker.service';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 const modules = [
   MatTableModule,
@@ -24,10 +25,12 @@ const modules = [
   BrowserAnimationsModule,
 ];
 
+const components = [ScrollTopComponent];
+
 @NgModule({
-  declarations: [],
-  imports: [...modules],
-  exports: [...modules],
+  declarations: [...components],
+  imports: [...modules, CommonModule],
+  exports: [...modules, ...components],
   providers: [MarkerService],
 })
 export class SharedModule {}

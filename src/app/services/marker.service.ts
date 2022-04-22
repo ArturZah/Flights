@@ -13,6 +13,7 @@ export class MarkerService {
     lng: number,
     hex: string,
     index: number,
+    manufacturer: string,
     flag?: string
   ): void {
     const flagSize: any = [35, 20];
@@ -34,6 +35,13 @@ export class MarkerService {
 
     marker
       .addTo(map)
-      .bindPopup(index + ': ' + hex + ' | from: ' + (flag ? flag : 'N/N'));
+      .bindPopup(
+        index +
+          ': ' +
+          hex +
+          (manufacturer ? ' - ' + manufacturer : '') +
+          ' | from: ' +
+          (flag ? flag : 'N/N')
+      );
   }
 }
