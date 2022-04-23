@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { airplainsData } from '../../data/flights-hex-list-data';
+import { airplainsData } from '../../data/airplains-data';
 import { AirplaneData } from '../../models/airplane.interface';
 import {
   FlightData,
@@ -10,6 +10,7 @@ import {
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
+import { AircraftTypes } from './../../enums/aircraft-types';
 
 @Component({
   selector: 'app-active-flights',
@@ -25,12 +26,12 @@ export class ActiveFlightsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'position',
     'hex',
-    'aircraft_icao',
     'airline_iata',
     'airline_icao',
     'reg_number',
     'flag',
     'manufacturer',
+    'type',
     'is_in_pl_borders',
   ];
   public minLat = 49.0;
@@ -65,6 +66,10 @@ export class ActiveFlightsComponent implements OnInit, AfterViewInit {
         const manufacturer = airplainsData.find((data: AirplaneData) => {
           return data.hex === flightData.hex;
         })?.manufacturer;
+        const typeIcao: string = airplainsData.find((data: AirplaneData) => {
+          return data.hex === flightData.hex;
+        })?.icao;
+        const type = AircraftTypes[typeIcao];
         const unixTime: number = flightData.updated * 1000;
         const lastpositionUpdate = this.datePipe.transform(
           // @ts-ignore
@@ -91,6 +96,7 @@ export class ActiveFlightsComponent implements OnInit, AfterViewInit {
           is_in_pl_borders: polLat && polLng,
           last_position_update: lastpositionUpdate,
           manufacturer: manufacturer,
+          type: type,
         };
       }
     );

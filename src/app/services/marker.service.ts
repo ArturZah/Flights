@@ -14,17 +14,14 @@ export class MarkerService {
     hex: string,
     index: number,
     manufacturer: string,
+    type?: string,
     flag?: string
   ): void {
-    const flagSize: any = [35, 20];
     const markerSize: any = [25, 40];
     const icon = leaflet.icon({
-      iconUrl: flag
-        ? './assets/img/' + flag + '.png'
-        : './assets/img/marker.png',
+      iconUrl: './assets/img/marker.png',
       shadowUrl: '',
-
-      iconSize: flag ? flagSize : markerSize, // size of the icon
+      iconSize: markerSize, // size of the icon
       shadowSize: [50, 64], // size of the shadow
       iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
       shadowAnchor: [4, 10], // the same for the shadow
@@ -36,12 +33,22 @@ export class MarkerService {
     marker
       .addTo(map)
       .bindPopup(
-        index +
+        '<h4 style="margin: 0;">' +
+          index +
           ': ' +
           hex +
-          (manufacturer ? ' - ' + manufacturer : '') +
-          ' | from: ' +
-          (flag ? flag : 'N/N')
+          '</h4>' +
+          '<h5 style="font-weight: 700;">' +
+          (manufacturer ? manufacturer : '') +
+          (type ? ' - ' + type : '') +
+          '</h5>' +
+          'From: ' +
+          (flag
+            ? flag +
+              '<img style="width: 26px; height: 15px; margin-left: 5px; position: relative; top: 2px;" src="./assets/img/' +
+              flag +
+              '.png">'
+            : 'N/N')
       );
   }
 }

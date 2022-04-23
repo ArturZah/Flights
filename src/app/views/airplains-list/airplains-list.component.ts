@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AirplaneData } from '../../models/airplane.interface';
-import { airplainsData } from '../../data/flights-hex-list-data';
+import { airplainsData } from '../../data/airplains-data';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { AircraftTypes } from './../../enums/aircraft-types';
 
 @Component({
   selector: 'app-airplains-list',
@@ -13,12 +14,14 @@ export class AirplainsListComponent implements OnInit, AfterViewInit {
   @ViewChild('airplainsTbSort') airplainsTbSort = new MatSort();
   public airplainsData: AirplaneData[] = [];
   public dataSource: any;
+  public aircraftTypes: typeof AircraftTypes = AircraftTypes;
   displayedColumns: string[] = [
     'hex',
     'icao',
     'iata',
     'airline_iata',
     'airline_icao',
+    'type',
     'manufacturer',
   ];
 

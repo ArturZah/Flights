@@ -49,15 +49,6 @@
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="aircraft_icao">
-          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
-            Aircraft ICAO
-          </th>
-          <td mat-cell class="u-pr-1" *matCellDef="let element">
-            {{ element.aircraft_icao ? element.aircraft_icao : "-" }}
-          </td>
-        </ng-container>
-
         <ng-container matColumnDef="airline_iata">
           <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
             Airline IATA
@@ -78,7 +69,7 @@
 
         <ng-container matColumnDef="reg_number">
           <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
-            Reg. numberO
+            Reg. number
           </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.reg_number ? element.reg_number : "-" }}
@@ -103,9 +94,18 @@
           </td>
         </ng-container>
 
+        <ng-container matColumnDef="type">
+          <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+            Type
+          </th>
+          <td mat-cell class="u-pr-1" *matCellDef="let element">
+            {{ element.type ? element.type : "-" }}
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="is_in_pl_borders">
           <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
-            Is in PL borders
+            In PL borders
           </th>
           <td mat-cell class="u-pr-1" *matCellDef="let element">
             {{ element.is_in_pl_borders ? "YES" : "NO" }}

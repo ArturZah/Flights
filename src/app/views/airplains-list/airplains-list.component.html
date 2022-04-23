@@ -64,6 +64,15 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="type">
+      <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
+        Type
+      </th>
+      <td mat-cell class="u-pr-1" *matCellDef="let element">
+        {{ aircraftTypes[element.icao] ? aircraftTypes[element.icao] : "-" }}
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="manufacturer">
       <th mat-sort-header mat-header-cell class="u-pr-1" *matHeaderCellDef>
         Manufacturer

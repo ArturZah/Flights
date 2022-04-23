@@ -8,6 +8,7 @@ export interface FlightData extends FlighDtotResponseData {
   is_in_pl_borders: boolean;
   last_position_update: string;
   manufacturer?: string;
+  type?: string;
 }
 
 export interface FlighDtotResponseData {
