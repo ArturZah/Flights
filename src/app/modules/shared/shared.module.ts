@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkerService } from '../../services/marker.service';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
@@ -19,6 +20,7 @@ const modules = [
   MatButtonModule,
   MatIconModule,
   MatSortModule,
+  MatGridListModule,
   BrowserModule,
   CommonModule,
   HttpClientModule,
