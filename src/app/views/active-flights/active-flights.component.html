@@ -4,11 +4,7 @@
     {{ flightsObjectArr.length > 1 ? "machines" : "machine" }} in the air
   </h2>
   <p class="container-text">
-    Map shows an actual position of active flights from
-    <span class="link" [routerLink]="['/airplains-list']">airplains list</span>
-  </p>
-  <p class="container-text">
-    Data in table can be filtered by value and sorted in collums
+    Map shows an actual position of active flights from airplains list.
   </p>
   <app-map class="map" [flightsData]="flightsObjectArr"></app-map>
   <div class="table-filter">

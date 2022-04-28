@@ -1,4 +1,8 @@
 <div class="tile">
+  <div
+    class="tile-background"
+    [ngClass]="{ 'tile-background--right': typesData.styled }"
+  ></div>
   <img
     class="tile-img"
     src="/assets/img/{{ typesData.type }}.jpg"
@@ -6,5 +10,5 @@
   />
   <h2 class="tile-header">{{ typesData.name }}</h2>
   <p class="tile-text">{{ typesData.description }}</p>
-  <button class="tile-button" color="accent" mat-flat-button>Details</button>
+  <button class="tile-button" color="primary" mat-flat-button>Details</button>
 </div>

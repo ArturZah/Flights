@@ -2,15 +2,23 @@
   padding: 15px 30px 100px 30px;
   max-width: 1500px;
   margin: 0 auto;
+  color: #fff;
+}
+
+.container-header {
+  font-size: 26px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 30px 0 0;
 }
 
 .container-text {
-  color: #fff;
+  font-weight: 400;
+  margin-bottom: 60px;
 }
 
 .filter {
   width: 100%;
-  color: #fff;
 }
 
 .table {
