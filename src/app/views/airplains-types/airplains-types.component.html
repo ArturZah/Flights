@@ -1,5 +1,12 @@
 <div class="info-container">
-  <mat-grid-list cols="3" rowHeight="600px" [gutterSize]="'30px'">
+  <h2 class="container-header">Aircrafts types</h2>
+  <p class="container-text">Info about aicrafts types from aicrafts list</p>
+  <mat-grid-list
+    [cols]="breakpoint"
+    [rowHeight]="rowHeight"
+    [gutterSize]="'30px'"
+    (window:resize)="handleSize($event)"
+  >
     <mat-grid-tile *ngFor="let type of typesData" [colspan]="1" [rowspan]="1">
       <app-type-tile [typesData]="type"></app-type-tile>
     </mat-grid-tile>

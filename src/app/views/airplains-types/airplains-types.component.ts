@@ -7,6 +7,8 @@ import { AircraftTypes } from '../../enums/aircraft-types';
   styleUrls: ['./airplains-types.component.css'],
 })
 export class AirplainsTypesComponent implements OnInit {
+  public breakpoint: number;
+  public rowHeight: string;
   public typesData: any[] = [
     {
       name: AircraftTypes.C17,
@@ -75,5 +77,21 @@ export class AirplainsTypesComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.breakpoint = window.innerWidth <= 1100 ? 2 : 3;
+    this.rowHeight = window.innerWidth <= 840 ? '700px' : '600px';
+
+    if (window.innerWidth <= 840) {
+      this.breakpoint = 1;
+    }
+  }
+
+  public handleSize(event): void {
+    this.breakpoint = event.target.innerWidth <= 1100 ? 2 : 3;
+    this.rowHeight = event.target.innerWidth <= 840 ? '700px' : '600px';
+
+    if (event.target.innerWidth <= 840) {
+      this.breakpoint = 1;
+    }
+  }
 }

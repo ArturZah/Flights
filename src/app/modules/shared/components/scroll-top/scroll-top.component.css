@@ -13,6 +13,7 @@
   background-color: rgba(158, 157, 157, 0.6);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  z-index: 9999;
 }
 
 .show-scrollTop {

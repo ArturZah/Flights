@@ -10,7 +10,12 @@ import { AirplainsTypesComponent } from './views/airplains-types/airplains-types
 import { TypeTileComponent } from './views/airplains-types/components/type-tile/type-tile.component';
 
 @NgModule({
-  declarations: [AppComponent, AirplainsListComponent, AirplainsTypesComponent, TypeTileComponent],
+  declarations: [
+    AppComponent,
+    AirplainsListComponent,
+    AirplainsTypesComponent,
+    TypeTileComponent,
+  ],
   imports: [
     ActiveFlightsModule,
     SharedModule,
@@ -24,11 +29,11 @@ import { TypeTileComponent } from './views/airplains-types/components/type-tile/
         component: ActiveFlightsComponent,
       },
       {
-        path: 'airplains-list',
+        path: 'aircrafts-list',
         component: AirplainsListComponent,
       },
       {
-        path: 'airplains-types',
+        path: 'aircrafts-types',
         component: AirplainsTypesComponent,
       },
     ]),

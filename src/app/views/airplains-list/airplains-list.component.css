@@ -1,11 +1,14 @@
 .container {
-  padding: 15px 30px 100px 30px;
+  width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .container-header {
+  padding: 15px 0 0 0;
+  color: #fff;
   font-size: 26px;
   font-weight: 100;
   text-transform: uppercase;
@@ -13,6 +16,8 @@
 }
 
 .container-text {
+  color: #fff;
+  margin: 0;
   font-weight: 400;
   margin-bottom: 60px;
 }
@@ -23,4 +28,11 @@
 
 .table {
   width: 100%;
+}
+
+@media only screen and (max-width: 1560px) {
+  .container {
+    width: calc(100% - 60px);
+    padding: 0 30px;
+  }
 }
